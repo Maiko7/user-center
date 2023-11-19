@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.maiko.usercenterdemo.mapper.VisitorMapper">
+
+    <resultMap id="BaseResultMap" type="com.maiko.usercenterdemo.model.domain.Visitor">
+            <id property="id" column="id" jdbcType="BIGINT"/>
+            <result property="toId" column="toId" jdbcType="BIGINT"/>
+            <result property="fromId" column="fromId" jdbcType="BIGINT"/>
+            <result property="fromUrl" column="fromUrl" jdbcType="VARCHAR"/>
+            <result property="message" column="message" jdbcType="VARCHAR"/>
+            <result property="amount" column="amount" jdbcType="INTEGER"/>
+            <result property="createTime" column="createTime" jdbcType="TIMESTAMP"/>
+            <result property="updateTime" column="updateTime" jdbcType="TIMESTAMP"/>
+            <result property="stealth" column="stealth" jdbcType="TINYINT"/>
+            <result property="isDelete" column="isDelete" jdbcType="TINYINT"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,toId,fromId,
+        fromUrl,message,amount,
+        createTime,updateTime,stealth,
+        isDelete
+    </sql>
+</mapper>

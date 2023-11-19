@@ -1,0 +1,62 @@
+server:
+  port: 8080
+#  /api/** 是一个 Ant 风格的路径表达式，它匹配所有以 "/api/" 开头的路径
+  servlet:
+    context-path: /api
+
+spring:
+  application:
+    name: user-center
+  profiles:
+    active: dev
+  #  Knife4j(Springfox)使用的路径匹配是基于AntPathMatcher的
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/project?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+    username: root
+    password: 123456
+#  redis:
+#    database: 0
+#    host: 127.0.0.1
+#    port: 6379
+#    password: 123456
+
+  # 配置全局逻辑删除字段
+  mybatis-plus:
+    global-config:
+      db-config:
+        logic-delete-field: isDelete  # 全局逻辑删除的实体字段名(since 3.3.0,配置后可以忽略不配置步骤2)
+        logic-delete-value: 1 # 逻辑已删除值(默认为 1)
+        logic-not-delete-value: 0 # 逻辑未删除值(默认为 0)
+    # 因为你数据库字段是驼峰，你不搞false它就是下划线转驼峰，你根本没有下划线
+    configuration:
+      map-underscore-to-camel-case: false
+  main:
+    allow-circular-references: true
+
+
+#knife4j:
+#  enable: true
+#  openapi:
+#    title: 用户中心调试文档中心
+#    description: 用户管理，管理员可对用户进行增删改查操作，用户可以修改自己的信息
+#    # aaa"
+#    email: 945073480@qq.com
+#    concat: Maiko7
+#    url: https://docs.xiaominfo.com
+#    version: v1.0
+#    license: Apache 2.0
+#    license-url: https://stackoverflow.com/
+#    terms-of-service-url: https://stackoverflow.com/
+#    group:
+#      test1:
+#        group-name: 分组名称
+#        api-rule: package
+#        api-rule-resources:
+#          - com.maiko.usercenterdemo.controller
+knife4j:
+  # 开启增强配置
+  enable: true

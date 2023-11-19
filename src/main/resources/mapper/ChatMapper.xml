@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.maiko.usercenterdemo.mapper.ChatMapper">
+
+    <resultMap id="BaseResultMap" type="com.maiko.usercenterdemo.model.domain.Chat">
+            <id property="id" column="id" jdbcType="BIGINT"/>
+            <result property="teamId" column="teamId" jdbcType="BIGINT"/>
+            <result property="toId" column="toId" jdbcType="BIGINT"/>
+            <result property="fromId" column="fromId" jdbcType="BIGINT"/>
+            <result property="fromName" column="fromName" jdbcType="VARCHAR"/>
+            <result property="fromUrl" column="fromUrl" jdbcType="VARCHAR"/>
+            <result property="text" column="text" jdbcType="VARCHAR"/>
+            <result property="createTime" column="createTime" jdbcType="TIMESTAMP"/>
+            <result property="updateTime" column="updateTime" jdbcType="TIMESTAMP"/>
+            <result property="status" column="status" jdbcType="TINYINT"/>
+            <result property="type" column="type" jdbcType="TINYINT"/>
+            <result property="scope" column="scope" jdbcType="TINYINT"/>
+            <result property="isDelete" column="isDelete" jdbcType="TINYINT"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,teamId,toId,
+        fromId,fromName,fromUrl,
+        text,createTime,updateTime,
+        status,type,scope,
+        isDelete
+    </sql>
+</mapper>
